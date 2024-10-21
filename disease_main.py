@@ -3,6 +3,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
 import joblib
+import numpy as np
 
 # IMPORTING MODEL
 diabetes_model = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/diabetes_model.sav', 'rb'))
@@ -12,8 +13,9 @@ parkinsons_model = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_m
 COPD_model_1 = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/copd_model.sav', 'rb'))
 COPD_model_2 = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/scaler.sav', 'rb'))
 # Kidney Model
-kidney_model = joblib.load('D:\COLLEGE STUDIES\SEM-5\DE\Project\saved_models\kidney_disease_model.joblib')
-
+filename = 'D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/Kidney.pkl'
+loaded_model = pickle.load(open(filename, 'rb'))
+# MIGRAINE
 model_path = r'D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/Migrain_model.joblib'
 model = joblib.load(model_path)
 
@@ -21,9 +23,13 @@ model = joblib.load(model_path)
 
 # SIDEBAR
 with st.sidebar:
-    selected = option_menu('Multiple Disease Prediction System using ML',
-                           ['Home', 'Diabetes Prediction', 'Heart Disease Prediction', 'Parkinsons Prediction','Pulmonary Prediction','Kidney Prediction','Migraine Prediction'],
-                           icons=['house', 'activity', 'heart', 'person','clipboard2-heart','bi-asterisk','bi-person-arms-up'],
+    # Display the image (replace 'path_to_image.png' with the path to your image)
+    st.image('LOGO2.png', use_column_width=True)
+    
+    # Option menu for selecting prediction models
+    selected = option_menu('Multiple Disease Prediction System  ',
+                           ['Home', 'Diabetes Prediction', 'Heart Disease Prediction', 'Parkinsons Prediction', 'Pulmonary Prediction', 'Kidney Prediction', 'Migraine Prediction'],
+                           icons=['house', 'activity', 'heart', 'person', 'clipboard2-heart', 'bi-asterisk', 'bi-person-arms-up'],
                            default_index=0)
 
 # HOME PAGE
@@ -39,12 +45,12 @@ if selected == 'Home':
         # st.markdown("<p style='text-align: center;'>Our advanced algorithms predict the likelihood of heart disease based on various health metrics.</p>", unsafe_allow_html=True)
 
     with col2:
-        st.image("heart.png", use_column_width=True)  # Replace with the path to your image
+        st.image("parkinson.png", use_column_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Parkinson Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Using the latest research, we provide insights into the early detection of Parkinson's disease.</p>", unsafe_allow_html=True)
 
     with col3:
-        st.image("heart.png", use_column_width=True)  # Replace with the path to your image
+        st.image("diabates.png", use_column_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Diabetes Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Our tools help predict the onset of diabetes, allowing for early intervention and management.</p>", unsafe_allow_html=True)
 
@@ -52,12 +58,12 @@ if selected == 'Home':
     col4, col5, col6 = st.columns(3)
 
     with col4:
-        st.image("park_final.png", use_column_width=True)  # Replace with the path to your image
-        st.markdown("<h3 style='text-align: center;'>Parkinsons Disease</h3>", unsafe_allow_html=True)
+        st.image("kidney.png", use_column_width=True)  # Replace with the path to your image
+        st.markdown("<h3 style='text-align: center;'>Kidney Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Our system helps in early prediction of pulmonary disease, assisting with timely treatment.</p>", unsafe_allow_html=True)
 
     with col5:
-        st.image("heart.png", use_column_width=True)  # Replace with the path to your image
+        st.image("pulmonary.png", use_column_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Pulmonary Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Our system helps in early prediction of pulmonary disease, assisting with timely treatment.</p>", unsafe_allow_html=True)
     
@@ -67,22 +73,6 @@ if selected == 'Home':
         # st.markdown("<p style='text-align: center;'>Our system helps in early prediction of pulmonary disease, assisting with timely treatment.</p>", unsafe_allow_html=True)
 
 
-    # Footer section
-    st.markdown("<hr>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.markdown("<h4>Contact Us</h4>", unsafe_allow_html=True)
-        st.markdown("<p>Email: Kartik@gmail.com</p>", unsafe_allow_html=True)
-        st.markdown("<p>Phone: +91 9406326708</p>", unsafe_allow_html=True)
-
-
-    with col3:
-        st.markdown("<h4>Quick Links</h4>", unsafe_allow_html=True)
-        st.markdown(f"<p><a href='#' onclick='window.location.reload();'>Home</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p><a href='#' onclick='window.location.reload();'>Diabetes Prediction</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p><a href='#' onclick='window.location.reload();'>Heart Disease Prediction</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p><a href='#' onclick='window.location.reload();'>Parkinson's Prediction</a></p>", unsafe_allow_html=True)
 
 # DIABETES PREDICTION PAGE
 if selected == 'Diabetes Prediction':
@@ -124,7 +114,7 @@ if selected == 'Diabetes Prediction':
 
 # HEART DISEASE PREDICTION PAGE
 if selected == 'Heart Disease Prediction':
-    st.title('Heart Disease Prediction using ML')
+    st.title('Heart Disease Prediction  ')
 
     col1, col2, col3 = st.columns(3)
 
@@ -176,7 +166,7 @@ if selected == 'Heart Disease Prediction':
 
 # PARKINSON'S DISEASE PREDICTION PAGE
 if selected == "Parkinsons Prediction":
-    st.title("Parkinson's Disease Prediction using ML")
+    st.title("Parkinson's Disease Prediction  ")
 
     col1, col2, col3, col4, col5 = st.columns(5)
 
@@ -308,99 +298,52 @@ if selected == 'Pulmonary Prediction':
             st.error("Please enter valid numerical values.")
 
 # KIDNEY DISEASE PREDICTION
-if selected == 'Kidney Prediction':
-    st.title('Kidney Disease Prediction using ML')
+if selected == "Kidney Prediction":
+    st.title("Kidney Disease Prediction  ")
 
-    col1, col2, col3 = st.columns(3)
+    # Define the function to get user input using Streamlit
+    def get_user_input():
+        # Create 3 columns
+        col1, col2, col3 = st.columns(3)
 
-    # Taking user input for kidney disease prediction parameters
-    with col1:
-        age = st.number_input('Age', min_value=1, step=1)
-    with col2:
-        blood_pressure = st.number_input('Blood Pressure (mm Hg)', min_value=1, step=1)
-    with col3:
-        specific_gravity = st.number_input('Specific Gravity', format="%.2f")
+        # Inputs distributed across the three columns
+        with col1:
+            sg = st.number_input("Specific Gravity (e.g., 1.010, 1.025)", min_value=1.005, max_value=1.030, value=1.020, step=0.001)
+            hemo = st.number_input("Hemoglobin level (e.g., 13.5, 9.5)", min_value=5.0, max_value=17.0, value=13.5)
+            rc = st.number_input("Red Blood Cells count (e.g., 5.2, 3.9)", min_value=2.0, max_value=7.0, value=5.0)
 
-    with col1:
-        albumin = st.number_input('Albumin (Protein in Urine)', format="%.2f")
-    with col2:
-        sugar = st.number_input('Sugar Level in Urine', format="%.2f")
-    with col3:
-        red_blood_cells = st.number_input('Red Blood Cells (0 = Normal, 1 = Abnormal)', format="%.2f")
+        with col2:
+            htn = st.selectbox("Hypertension (1 for Yes, 0 for No)", [0, 1])
+            dm = st.selectbox("Diabetes Mellitus (1 for Yes, 0 for No)", [0, 1])
+            pc = st.selectbox("Pus Cell (0 for Normal, 1 for Abnormal)", [0, 1])
 
-    with col1:
-        pus_cell = st.number_input('Pus Cell (0 = Normal, 1 = Abnormal)', format="%.2f")
-    with col2:
-        pus_cell_clumps = st.number_input('Pus Cell Clumps (0 = Normal, 1 = Abnormal)', format="%.2f")
-    with col3:
-        bacteria = st.number_input('Bacteria (0 = None, 1 = Present)', format="%.2f")
+        with col3:
+            al = st.selectbox("Albumin (0-5)", [0, 1, 2, 3, 4, 5])
+            appet = st.selectbox("Appetite (1 for Good, 0 for Poor)", [0, 1])
 
-    with col1:
-        blood_glucose_random = st.number_input('Blood Glucose Random (mg/dL)', format="%.2f")
-    with col2:
-        blood_urea = st.number_input('Blood Urea (mg/dL)', format="%.2f")
-    with col3:
-        serum_creatinine = st.number_input('Serum Creatinine (mg/dL)', format="%.2f")
+        # Combine all inputs into a single array
+        user_input = np.array([[sg, htn, hemo, dm, al, appet, rc, pc]])
+        return user_input
 
-    with col1:
-        sodium = st.number_input('Sodium (mEq/L)', format="%.2f")
-    with col2:
-        potassium = st.number_input('Potassium (mEq/L)', format="%.2f")
-    with col3:
-        haemoglobin = st.number_input('Hemoglobin (g/dL)', format="%.2f")
-
-    with col1:
-        packed_cell_volume = st.number_input('Packed Cell Volume (PCV)', format="%.2f")
-    with col2:
-        white_blood_cell_count = st.number_input('White Blood Cell Count (cells/cu mm)', format="%.2f")
-    with col3:
-        red_blood_cell_count = st.number_input('Red Blood Cell Count (millions/cu mm)', format="%.2f")
-
-    with col1:
-        hypertension = st.selectbox('Hypertension', ['Yes', 'No'])
-    with col2:
-        diabetes_mellitus = st.selectbox('Diabetes Mellitus', ['Yes', 'No'])
-    with col3:
-        coronary_artery_disease = st.selectbox('Coronary Artery Disease', ['Yes', 'No'])
-
-    with col1:
-        appetite = st.selectbox('Appetite', ['Good', 'Poor'])
-    with col2:
-        pedal_edema = st.selectbox('Pedal Edema', ['Yes', 'No'])
-    with col3:
-        anemia = st.selectbox('Anemia', ['Yes', 'No'])
-
-    kidney_diagnosis = ''
-
-    # Button to make prediction
-    if st.button('Kidney Disease Test Result'):
-        # Collect user input into a list and convert to appropriate types
-        user_input = [
-            age, blood_pressure, specific_gravity, albumin, sugar,
-            red_blood_cells, pus_cell, pus_cell_clumps, bacteria,
-            blood_glucose_random, blood_urea, serum_creatinine, sodium,
-            potassium, haemoglobin, packed_cell_volume, white_blood_cell_count,
-            red_blood_cell_count,
-            1 if hypertension == 'Yes' else 0,
-            1 if diabetes_mellitus == 'Yes' else 0,
-            1 if coronary_artery_disease == 'Yes' else 0,
-            1 if appetite == 'Poor' else 0,
-            1 if pedal_edema == 'Yes' else 0,
-            1 if anemia == 'Yes' else 0,
-        ]
-
-        # Predict using the loaded kidney disease model
-        kidney_prediction = kidney_model.predict([user_input])
-
-        if kidney_prediction[0] == 1:
-            kidney_diagnosis = 'The person has kidney disease.'
+    # Define the prediction function
+    def predict_ckd(user_input):
+        prediction = loaded_model.predict(user_input)[0]
+        
+        if prediction == 1:
+            return "CKD (Chronic Kidney Disease)"
         else:
-            kidney_diagnosis = 'The person does not have kidney disease.'
+            return "No CKD"
 
-    st.success(kidney_diagnosis)
+    # Get user input
+    user_input = get_user_input()
+
+    # Button to predict
+    if st.button("Predict Kidney Disease"):
+        result = predict_ckd(user_input)
+        st.success(f"The prediction is: {result}")
 
 # Migrain Prediction
-def get_user_input():
+def migraine_input():
     st.title("Migraine Prediction Model")
     col1, col2, col3 = st.columns(3)
 
@@ -437,10 +380,9 @@ def get_user_input():
     return [age, duration, frequency, location, character, intensity,
             nausea, vomit, phonophobia, photophobia, visual, sensory,
             dysphasia, dysarthria, vertigo, tinnitus, hypoacusis,
-            diplopia, defect, ataxia, conscience, paresthesia, dpf]
-            
+            diplopia, defect, ataxia, conscience, paresthesia, dpf]   
 if selected == 'Migraine Prediction':
-        features = get_user_input()
+        features = migraine_input()
         
         # Convert features to DataFrame for prediction
         feature_names = ['Age', 'Duration', 'Frequency', 'Location', 'Character', 
