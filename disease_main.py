@@ -6,18 +6,15 @@ import joblib
 import numpy as np
 
 # IMPORTING MODEL
-diabetes_model = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/diabetes_model.sav', 'rb'))
-heart_disease_model = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/heart_disease_model.sav', 'rb'))
-parkinsons_model = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/parkinsons_model.sav', 'rb'))
-# COPD_model
-COPD_model_1 = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/copd_model.sav', 'rb'))
-COPD_model_2 = pickle.load(open('D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/scaler.sav', 'rb'))
-# Kidney Model
-filename = 'D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/Kidney.pkl'
-loaded_model = pickle.load(open(filename, 'rb'))
-# MIGRAINE
-model_path = r'D:/COLLEGE STUDIES/SEM-5/DE/Project/saved_models/Migrain_model.joblib'
-model = joblib.load(model_path)
+# Load models from the same directory as the script
+diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
+heart_disease_model = pickle.load(open('heart_disease_model.sav', 'rb'))
+parkinsons_model = pickle.load(open('parkinsons_model.sav', 'rb'))
+COPD_model_1 = pickle.load(open('copd_model.sav', 'rb'))
+COPD_model_2 = pickle.load(open('scaler.sav', 'rb'))
+loaded_model = pickle.load(open('Kidney.pkl', 'rb'))
+model = joblib.load('Migrain_model.joblib')
+
 
 
 
