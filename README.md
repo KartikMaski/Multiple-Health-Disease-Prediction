@@ -2,6 +2,9 @@
 
 Diagnosify is a predictive healthcare tool designed to analyze a patient's health metrics and provide an indication of potential diseases. This system leverages machine learning to predict the likelihood of various diseases, including diabetes, heart disease, Parkinson's disease, COPD, and kidney disease. Diagnosify aims to be an accessible, fast, and accurate aid for both medical professionals and patients.
 
+## Demo
+You can view a live demo of Diagnosify [here](https://health-diagnosify.streamlit.app/).
+
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
