@@ -45,3 +45,38 @@ Diagnosify is built using machine learning algorithms and aims to assist healthc
    ```bash
    git clone https://github.com/username/Diagnosify.git
    cd Diagnosify
+2. **Create a virtual environment:**
+   ```bash
+   python -m venv env
+   source env/bin/activate    # On Windows use: env\Scripts\activate
+3. **Create a virtual environment:**
+   ```bash
+   pip install -r requirements.txt
+4. **Run the application locally:**
+   ```bash
+   streamlit run disease_main.py
+
+## Deploying on Streamlit Cloud
+1. Push your code to a GitHub repository.
+2. In Streamlit Cloud, create a new app and connect it to your GitHub repository.
+3. Ensure your `requirements.txt` file is included in the repository for dependency installation.
+4. Click "Deploy" to launch the app.
+
+## Usage
+1. **Launch the App**: Access Diagnosify locally or via Streamlit Cloud.
+2. **Enter Health Metrics**: Input relevant patient data such as age, blood pressure, glucose levels, etc.
+3. **Get Prediction**: The app will output a probability score for each disease.
+4. **Interpret Results**: Use the prediction probabilities as supplementary information alongside professional medical advice.
+
+## Model Information
+Diagnosify uses a range of supervised machine learning models trained on curated datasets to predict each disease. Here is a quick summary of the models used:
+
+- **Diabetes**: Random Forest Classifier
+- **Heart Disease**: Logistic Regression
+- **Parkinson's Disease**: Support Vector Machine
+- **COPD**: Gradient Boosting Classifier
+- **Kidney Disease**: Decision Tree Classifier
+
+Each model has been tuned for accuracy and optimized for real-time prediction.
+
+
