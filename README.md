@@ -9,9 +9,7 @@ Diagnosify is a predictive healthcare tool designed to analyze a patient's healt
 - [Setup](#setup)
 - [Usage](#usage)
 - [Model Information](#model-information)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Overview
 Diagnosify is built using machine learning algorithms and aims to assist healthcare professionals by providing a secondary diagnostic tool for common diseases. With a user-friendly Streamlit interface, users can enter health metrics and get a probabilistic assessment of specific diseases, aiding in early detection and preventive care.
