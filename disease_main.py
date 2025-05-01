@@ -21,7 +21,7 @@ model = joblib.load('Migrain_model.joblib')
 # SIDEBAR
 with st.sidebar:
     # Display the image (replace 'path_to_image.png' with the path to your image)
-    st.image('LOGO2.png', use_column_width=True)
+    st.image('LOGO2.png', use_container_width=True)
     
     # Option menu for selecting prediction models
     selected = option_menu('Multiple Disease Prediction System  ',
@@ -37,17 +37,17 @@ if selected == 'Home':
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.image("heart.png", use_column_width=True)  # Replace with the path to your image
+        st.image("heart.png", use_container_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Heart Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Our advanced algorithms predict the likelihood of heart disease based on various health metrics.</p>", unsafe_allow_html=True)
 
     with col2:
-        st.image("parkinson.png", use_column_width=True)  # Replace with the path to your image
+        st.image("parkinson.png", use_container_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Parkinson Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Using the latest research, we provide insights into the early detection of Parkinson's disease.</p>", unsafe_allow_html=True)
 
     with col3:
-        st.image("diabates.png", use_column_width=True)  # Replace with the path to your image
+        st.image("diabates.png", use_container_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Diabetes Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Our tools help predict the onset of diabetes, allowing for early intervention and management.</p>", unsafe_allow_html=True)
 
@@ -55,17 +55,17 @@ if selected == 'Home':
     col4, col5, col6 = st.columns(3)
 
     with col4:
-        st.image("kidney.png", use_column_width=True)  # Replace with the path to your image
+        st.image("kidney.png", use_container_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Kidney Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Our system helps in early prediction of pulmonary disease, assisting with timely treatment.</p>", unsafe_allow_html=True)
 
     with col5:
-        st.image("pulmonary.png", use_column_width=True)  # Replace with the path to your image
+        st.image("pulmonary.png", use_container_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Pulmonary Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Our system helps in early prediction of pulmonary disease, assisting with timely treatment.</p>", unsafe_allow_html=True)
     
     with col6:
-        st.image("migraine.png", use_column_width=True)  # Replace with the path to your image
+        st.image("migraine.png", use_container_width=True)  # Replace with the path to your image
         st.markdown("<h3 style='text-align: center;'>Migraine Disease</h3>", unsafe_allow_html=True)
         # st.markdown("<p style='text-align: center;'>Our system helps in early prediction of pulmonary disease, assisting with timely treatment.</p>", unsafe_allow_html=True)
 
