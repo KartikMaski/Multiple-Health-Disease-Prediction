@@ -23,7 +23,6 @@ model = joblib.load(model_path)
 
 # SIDEBAR
 with st.sidebar:
-    # Display the image (replace 'path_to_image.png' with the path to your image)
     st.image('LOGO2.png', use_column_width=True)
     
     # Option menu for selecting prediction models
