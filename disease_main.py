@@ -20,12 +20,11 @@ model = joblib.load('Migrain_model.joblib')
 
 # SIDEBAR
 with st.sidebar:
-<<<<<<< HEAD
+
     st.image('LOGO2.png', use_column_width=True)
-=======
-    # Display the image (replace 'path_to_image.png' with the path to your image)
-    st.image('LOGO2.png', use_container_width=True)
->>>>>>> 199818ca7ef52eb5532ea171da0409d87558f92a
+
+    
+
     
     # Option menu for selecting prediction models
     selected = option_menu('Multiple Disease Prediction System  ',
