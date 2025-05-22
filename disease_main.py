@@ -21,7 +21,7 @@ model = joblib.load('Migrain_model.joblib')
 # SIDEBAR
 with st.sidebar:
 
-    st.image('LOGO2.png', use_column_width=True)
+    st.image('LOGO2.png', use_container_width=True)
 
     
 
